@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo App</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1 class="title">
+                <svg class="title-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M9 11l3 3L22 4"></path>
+                    <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"></path>
+                </svg>
+                My Todo List
+            </h1>
+            <p class="subtitle">Stay organized and productive</p>
+        </header>
+
+        <div class="add-todo-section">
+            <form id="todoForm" class="todo-form">
+                <div class="input-group">
+                    <input 
+                        type="text" 
+                        id="todoTitle" 
+                        class="todo-input" 
+                        placeholder="What needs to be done?"
+                        required
+                        autocomplete="off"
+                    >
+                    <input 
+                        type="text" 
+                        id="todoDescription" 
+                        class="todo-input description-input" 
+                        placeholder="Add a description (optional)"
+                        autocomplete="off"
+                    >
+                </div>
+                <button type="submit" class="btn btn-primary">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="12" y1="5" x2="12" y2="19"></line>
+                        <line x1="5" y1="12" x2="19" y2="12"></line>
+                    </svg>
+                    Add Todo
+                </button>
+            </form>
+        </div>
+
+        <div class="stats-section">
+            <div class="stat-card">
+                <span class="stat-label">Total</span>
+                <span class="stat-value" id="totalCount">0</span>
+            </div>
+            <div class="stat-card">
+                <span class="stat-label">Active</span>
+                <span class="stat-value" id="activeCount">0</span>
+            </div>
+            <div class="stat-card">
+                <span class="stat-label">Completed</span>
+                <span class="stat-value" id="completedCount">0</span>
+            </div>
+        </div>
+
+        <div class="filter-section">
+            <button class="filter-btn active" data-filter="all">All</button>
+            <button class="filter-btn" data-filter="active">Active</button>
+            <button class="filter-btn" data-filter="completed">Completed</button>
+        </div>
+
+        <div id="loadingSpinner" class="loading-spinner hidden">
+            <div class="spinner"></div>
+            <p>Loading todos...</p>
+        </div>
+
+        <div id="errorMessage" class="error-message hidden"></div>
+
+        <div id="emptyState" class="empty-state hidden">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10"></circle>
+                <line x1="12" y1="8" x2="12" y2="12"></line>
+                <line x1="12" y1="16" x2="12.01" y2="16"></line>
+            </svg>
+            <h3>No todos yet</h3>
+            <p>Add your first todo to get started!</p>
+        </div>
+
+        <ul id="todoList" class="todo-list"></ul>
+    </div>
+
+    <footer class="footer">
+        <p>Built with ❤️ using Flask & Vanilla JavaScript</p>
+    </footer>
+
+    <script src="app.js"></script>
+</body>
+</html>
