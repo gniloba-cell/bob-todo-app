@@ -1,9 +1,34 @@
-# Todo App Flask Backend
+# Bob Todo App
 
-A RESTful API backend for a Todo application built with Flask, SQLAlchemy, and comprehensive test coverage.
+A full-stack Todo application with Flask backend and vanilla JavaScript frontend.
+
+## Project Structure
+
+```
+bob-todo-app/
+├── backend/              # Flask REST API
+│   ├── app.py           # Main Flask application
+│   ├── models.py        # SQLAlchemy models
+│   ├── database.py      # Database initialization
+│   ├── requirements.txt # Python dependencies
+│   ├── test_app.py      # Unit tests
+│   ├── pytest.ini       # Test configuration
+│   ├── .coveragerc      # Coverage settings
+│   └── test_api.ps1     # API testing script
+│
+├── frontend/            # Vanilla JavaScript UI
+│   ├── index.html      # Main HTML structure
+│   ├── styles.css      # Responsive styling
+│   └── app.js          # JavaScript with literate programming
+│
+├── .gitignore          # Git ignore rules
+├── README.md           # This file
+└── GIT_SETUP.md        # Git setup instructions
+```
 
 ## Features
 
+### Backend
 - Full CRUD operations for todos
 - SQLite database with SQLAlchemy ORM
 - CORS enabled for cross-origin requests
@@ -11,21 +36,46 @@ A RESTful API backend for a Todo application built with Flask, SQLAlchemy, and c
 - 90%+ test coverage
 - Input validation and sanitization
 
+### Frontend
+- Modern, responsive design
+- Real-time statistics dashboard
+- Filter functionality (All/Active/Completed)
+- Smooth animations and transitions
+- Mobile-first responsive layout
+- Keyboard shortcuts (Ctrl/Cmd + K)
+- Auto-refresh every 30 seconds
+
 ## Installation
 
-1. Install dependencies:
+### Backend Setup
+
+1. Navigate to the backend directory:
+```bash
+cd backend
+```
+
+2. Install dependencies:
 ```bash
 pip install -r requirements.txt
 ```
 
-## Running the Application
-
-Start the Flask development server:
+3. Run the Flask server:
 ```bash
 python app.py
 ```
 
 The API will be available at `http://localhost:5000`
+
+### Frontend Setup
+
+1. Simply open `frontend/index.html` in a web browser, or
+2. Use a local server:
+```bash
+cd frontend
+python -m http.server 8000
+```
+
+Then navigate to `http://localhost:8000`
 
 ## API Endpoints
 
@@ -130,6 +180,11 @@ Response:
 
 ## Running Tests
 
+Navigate to the backend directory:
+```bash
+cd backend
+```
+
 Run all tests:
 ```bash
 pytest
@@ -161,16 +216,22 @@ The test suite includes:
 
 Current test coverage: **90%+**
 
-## Project Structure
+## Technology Stack
 
-```
-.
-├── app.py              # Main Flask application
-├── models.py           # SQLAlchemy Todo model
-├── database.py         # Database initialization
-├── requirements.txt    # Python dependencies
-├── test_app.py         # Comprehensive test suite
-├── pytest.ini          # Pytest configuration
+### Backend
+- Python 3.x
+- Flask 3.0.0
+- Flask-CORS 4.0.0
+- Flask-SQLAlchemy 3.1.1
+- SQLite database
+- Pytest for testing
+- Coverage.py for code coverage
+
+### Frontend
+- HTML5
+- CSS3 (with CSS Variables)
+- Vanilla JavaScript (ES6+)
+- No frameworks or libraries required
 ├── .coveragerc         # Coverage configuration
 └── README.md           # This file
 ```
